@@ -107,12 +107,13 @@
                     <navigationItem key="navigationItem" title="Course Book" id="bLS-zJ-J61">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lQ7-Wi-5yJ">
                             <connections>
-                                <segue destination="CXF-pw-28o" kind="show" id="rmN-A3-XZm"/>
+                                <segue destination="CXF-pw-28o" kind="show" identifier="addSegue" id="rmN-A3-XZm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="r7q-AY-1Ub" id="YH1-Z9-hmI"/>
+                        <segue destination="CXF-pw-28o" kind="show" identifier="editSegue" id="32e-CT-cT4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -130,12 +131,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="200-G9-FIN">
                                 <rect key="frame" x="67.5" y="86" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="pickImage:" destination="CXF-pw-28o" eventType="touchUpInside" id="Gzl-y0-hHM"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Choose" translatesAutoresizingMaskIntoConstraints="NO" id="uq8-54-sl4">
                                 <rect key="frame" x="67.5" y="86" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="AAB-mq-Lyu"/>
-                                    <constraint firstAttribute="height" constant="128" id="RZK-w1-yQc"/>
+                                    <constraint firstAttribute="width" constant="240" id="iWa-7a-9mW"/>
+                                    <constraint firstAttribute="height" constant="128" id="kpH-pk-mYF"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Kx8-pJ-QdB">
@@ -163,10 +167,6 @@
                             </stackView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SV2-Fi-BVq">
                                 <rect key="frame" x="0.0" y="394" width="375" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="Jk0-vC-Rod"/>
-                                    <constraint firstAttribute="height" constant="216" id="bde-sd-18s"/>
-                                </constraints>
                             </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yt4-Rb-Ex1">
                                 <rect key="frame" x="20" y="624" width="335" height="30"/>
@@ -180,6 +180,9 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveData:" destination="CXF-pw-28o" eventType="touchUpInside" id="P6O-Pt-Irt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2z-Lt-vv4">
                                         <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
@@ -192,28 +195,38 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="deleteData:" destination="CXF-pw-28o" eventType="touchUpInside" id="7hE-RA-Msf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uq8-54-sl4" firstAttribute="leading" secondItem="QAf-oJ-VEx" secondAttribute="leading" constant="67.5" id="0Vt-WE-aBk"/>
-                            <constraint firstItem="QAf-oJ-VEx" firstAttribute="bottom" secondItem="yt4-Rb-Ex1" secondAttribute="bottom" constant="13" id="6XF-Sx-wjV"/>
-                            <constraint firstItem="Kx8-pJ-QdB" firstAttribute="leading" secondItem="QAf-oJ-VEx" secondAttribute="leading" constant="67" id="EG7-ZE-pXT"/>
-                            <constraint firstItem="uq8-54-sl4" firstAttribute="top" secondItem="QAf-oJ-VEx" secondAttribute="top" constant="22" id="EPe-7J-LM1"/>
-                            <constraint firstItem="yt4-Rb-Ex1" firstAttribute="leading" secondItem="QAf-oJ-VEx" secondAttribute="leading" constant="20" id="L5C-f2-JGc"/>
-                            <constraint firstItem="SV2-Fi-BVq" firstAttribute="leading" secondItem="QAf-oJ-VEx" secondAttribute="leading" id="OMZ-Xa-Epp"/>
-                            <constraint firstItem="QAf-oJ-VEx" firstAttribute="trailing" secondItem="uq8-54-sl4" secondAttribute="trailing" constant="67.5" id="XBf-B8-Dsp"/>
-                            <constraint firstItem="Kx8-pJ-QdB" firstAttribute="top" secondItem="uq8-54-sl4" secondAttribute="bottom" constant="27" id="Y8I-PA-kE0"/>
-                            <constraint firstItem="QAf-oJ-VEx" firstAttribute="trailing" secondItem="Kx8-pJ-QdB" secondAttribute="trailing" constant="67" id="Zy1-7S-Bas"/>
-                            <constraint firstItem="SV2-Fi-BVq" firstAttribute="trailing" secondItem="QAf-oJ-VEx" secondAttribute="trailing" id="agt-L0-sDk"/>
-                            <constraint firstItem="QAf-oJ-VEx" firstAttribute="trailing" secondItem="yt4-Rb-Ex1" secondAttribute="trailing" constant="20" id="hwA-HG-PCR"/>
-                            <constraint firstItem="SV2-Fi-BVq" firstAttribute="top" secondItem="Kx8-pJ-QdB" secondAttribute="bottom" constant="23" id="qJM-be-inm"/>
-                            <constraint firstItem="yt4-Rb-Ex1" firstAttribute="top" secondItem="SV2-Fi-BVq" secondAttribute="bottom" constant="14" id="sPv-0Z-Tcn"/>
+                            <constraint firstItem="yt4-Rb-Ex1" firstAttribute="top" secondItem="SV2-Fi-BVq" secondAttribute="bottom" constant="14" id="1E3-lB-R0z"/>
+                            <constraint firstItem="Kx8-pJ-QdB" firstAttribute="top" secondItem="uq8-54-sl4" secondAttribute="bottom" constant="27" id="DSp-Qh-T6u"/>
+                            <constraint firstItem="SV2-Fi-BVq" firstAttribute="leading" secondItem="QAf-oJ-VEx" secondAttribute="leading" id="Hlv-vR-tvv"/>
+                            <constraint firstItem="QAf-oJ-VEx" firstAttribute="bottom" secondItem="yt4-Rb-Ex1" secondAttribute="bottom" constant="13" id="It6-w0-8Fk"/>
+                            <constraint firstItem="Kx8-pJ-QdB" firstAttribute="leading" secondItem="QAf-oJ-VEx" secondAttribute="leading" constant="67" id="K1d-M1-rjE"/>
+                            <constraint firstItem="QAf-oJ-VEx" firstAttribute="trailing" secondItem="uq8-54-sl4" secondAttribute="trailing" constant="67.5" id="SBZ-kG-Jto"/>
+                            <constraint firstItem="SV2-Fi-BVq" firstAttribute="trailing" secondItem="QAf-oJ-VEx" secondAttribute="trailing" id="Tar-kI-cId"/>
+                            <constraint firstItem="QAf-oJ-VEx" firstAttribute="trailing" secondItem="yt4-Rb-Ex1" secondAttribute="trailing" constant="20" id="U0z-Kc-Ivz"/>
+                            <constraint firstItem="uq8-54-sl4" firstAttribute="leading" secondItem="QAf-oJ-VEx" secondAttribute="leading" constant="67.5" id="UGP-7g-hwc"/>
+                            <constraint firstItem="QAf-oJ-VEx" firstAttribute="trailing" secondItem="Kx8-pJ-QdB" secondAttribute="trailing" constant="67" id="XOE-7g-uul"/>
+                            <constraint firstItem="SV2-Fi-BVq" firstAttribute="top" secondItem="Kx8-pJ-QdB" secondAttribute="bottom" constant="23" id="aiG-st-kj6"/>
+                            <constraint firstItem="uq8-54-sl4" firstAttribute="top" secondItem="QAf-oJ-VEx" secondAttribute="top" constant="22" id="egm-yt-UP1"/>
+                            <constraint firstItem="yt4-Rb-Ex1" firstAttribute="leading" secondItem="QAf-oJ-VEx" secondAttribute="leading" constant="20" id="pgw-zi-dlf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QAf-oJ-VEx"/>
                     </view>
+                    <connections>
+                        <outlet property="courseEmailTextField" destination="HUK-sw-wQC" id="SXX-sr-LmD"/>
+                        <outlet property="courseNameTextField" destination="P6j-TY-KMs" id="T06-Uq-qEv"/>
+                        <outlet property="coursePriceTextField" destination="iPd-Fw-Be7" id="MRP-Ht-Erp"/>
+                        <outlet property="imageView" destination="uq8-54-sl4" id="05x-Ks-MRd"/>
+                        <outlet property="pickerView" destination="SV2-Fi-BVq" id="i1f-gH-EFh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p21-Gl-Idf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -242,4 +255,7 @@
         <image name="Choose" width="686" height="175"/>
         <image name="CodeImage" width="640" height="425"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="32e-CT-cT4"/>
+    </inferredMetricsTieBreakers>
 </document>

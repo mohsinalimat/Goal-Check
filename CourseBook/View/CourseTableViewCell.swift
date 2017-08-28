@@ -24,6 +24,7 @@ class CourseTableViewCell: UITableViewCell {
         
         // TODO: Set image later
         
+        imageViewCell.image = course.courseToImage?.image as? UIImage
         
     }
     

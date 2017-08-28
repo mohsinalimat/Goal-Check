@@ -175,6 +175,45 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return 120
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let passedInfo = controller.fetchedObjects, passedInfo.count > 0 {
+            
+            let course = passedInfo[indexPath.row]
+            
+            performSegue(withIdentifier: "editSegue", sender: course)
+            
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editSegue"{
+            if let guest = segue.destination as? AddCourseViewController{
+                
+                if let course = sender as? Course{
+                    
+                    guest.existingCourse = course
+                    
+                    
+                }
+                
+                
+            }
+            
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }
