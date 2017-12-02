@@ -9,12 +9,14 @@
 import UIKit
 
 class GoalCell: UITableViewCell {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var goalDescription: UILabel!
-    
     @IBOutlet weak var goalType: UILabel!
-    
     @IBOutlet weak var goalProgress: UILabel!
+    
+    // MARK: - ConfigureCell
     
     func configureCell(description: String, type: String, goalProgressAmount: Int) {
         self.goalDescription.text = description
