@@ -28,7 +28,9 @@ class GoalsVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func addGoal(_ sender: Any) {
+        guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else {return}
         
+        presentDetail(createGoalVC)
     }
 }
 

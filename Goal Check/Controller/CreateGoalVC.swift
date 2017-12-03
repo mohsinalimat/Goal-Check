@@ -28,7 +28,7 @@ class CreateGoalVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func closeVC(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismissDetail()
     }
     
     @IBAction func nextPressed(_ sender: Any) {
