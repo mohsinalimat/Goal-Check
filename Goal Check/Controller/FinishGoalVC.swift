@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FinishGoalVC: UIViewController {
+class FinishGoalVC: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
 
@@ -26,6 +26,7 @@ class FinishGoalVC: UIViewController {
         super.viewDidLoad()
 
         createGoalButton.bindToKeyboard()
+        pointsTextField.delegate = self
     }
 
     // MARK: - Actions
