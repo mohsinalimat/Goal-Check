@@ -151,6 +151,22 @@
                                                     <color key="textColor" red="0.16053632330000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbA-eR-DZC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL COMPLETE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvg-xs-QuP">
+                                                            <rect key="frame" x="57" y="17" width="261" height="36"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                                            <color key="textColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="0.70515970940527706" blue="0.26104473992214638" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="uvg-xs-QuP" firstAttribute="centerY" secondItem="lbA-eR-DZC" secondAttribute="centerY" id="NhE-Db-L0w"/>
+                                                        <constraint firstItem="uvg-xs-QuP" firstAttribute="centerX" secondItem="lbA-eR-DZC" secondAttribute="centerX" id="caQ-wF-rgO"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="kl8-Uu-XGo" secondAttribute="bottom" id="386-Bl-GLU"/>
@@ -159,10 +175,15 @@
                                                 <constraint firstAttribute="bottom" secondItem="zUw-fF-qUG" secondAttribute="bottom" constant="8" id="SOr-ch-9Wr"/>
                                                 <constraint firstItem="kl8-Uu-XGo" firstAttribute="top" secondItem="4LL-bs-GqO" secondAttribute="topMargin" id="Woa-cd-SN8"/>
                                                 <constraint firstItem="kl8-Uu-XGo" firstAttribute="leading" secondItem="4LL-bs-GqO" secondAttribute="leadingMargin" id="diX-Qh-Bo9"/>
+                                                <constraint firstItem="lbA-eR-DZC" firstAttribute="top" secondItem="4LL-bs-GqO" secondAttribute="top" id="eeZ-zn-2Zn"/>
+                                                <constraint firstAttribute="bottom" secondItem="lbA-eR-DZC" secondAttribute="bottom" id="hRg-Hq-9iw"/>
+                                                <constraint firstAttribute="trailing" secondItem="lbA-eR-DZC" secondAttribute="trailing" id="kVe-eb-GbL"/>
+                                                <constraint firstItem="lbA-eR-DZC" firstAttribute="leading" secondItem="4LL-bs-GqO" secondAttribute="leading" id="rOW-kh-bZ4"/>
                                                 <constraint firstItem="zUw-fF-qUG" firstAttribute="top" secondItem="4LL-bs-GqO" secondAttribute="top" constant="8" id="yTb-aq-Wpg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="completionView" destination="lbA-eR-DZC" id="qtW-k6-Hyc"/>
                                             <outlet property="goalDescription" destination="e74-Qm-WCG" id="emT-zM-0xm"/>
                                             <outlet property="goalProgress" destination="zUw-fF-qUG" id="MEm-MD-NEg"/>
                                             <outlet property="goalType" destination="3BJ-4z-lhb" id="AzY-sY-UdH"/>

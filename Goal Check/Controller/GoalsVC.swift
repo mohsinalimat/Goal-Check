@@ -104,6 +104,25 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
 
 extension GoalsVC {
     
+    func setProgress(atIndexPath indexPath: IndexPath) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+        let chosenGoal = goals[indexPath.row]
+        
+        if chosenGoal.goalProgress < chosenGoal.goalCompletionValue {
+            chosenGoal.goalProgress += 1
+        } else {
+            return
+        }
+        
+        do {
+            try managedContext.save()
+            print("Successfully set progress!")
+        } catch {
+            debugPrint("Could not set progress: \(error.localizedDescription)")
+        }
+    }
+ 
     //remove object
     func removeGoal(atIndexPath indexPath: IndexPath){
         
